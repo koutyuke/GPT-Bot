@@ -2,6 +2,13 @@
   "name": "openai_chatbot",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "start": "bun run ./src/index.ts",
+    "fmt": "biome format ./src/**/*.{ts,tsx} --no-errors-on-unmatched",
+    "fmt:fix": "biome format --write ./src/**/*.{ts,tsx} --no-errors-on-unmatched",
+    "lint": "biome lint ./src/**/*.{ts,tsx} --error-on-warnings --no-errors-on-unmatched",
+    "lint:fix": "biome lint --apply ./src/**/*.{ts,tsx} --no-errors-on-unmatched"
+  },
   "devDependencies": {
     "@biomejs/biome": "1.5.3",
     "@types/bun": "latest"
@@ -10,6 +17,10 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@tsconfig/strictest": "^2.0.3"
+    "@langchain/community": "^0.0.33",
+    "@langchain/core": "^0.1.39",
+    "@langchain/openai": "^0.0.14",
+    "@tsconfig/strictest": "^2.0.3",
+    "discord.js": "^14.14.1"
   }
 }
