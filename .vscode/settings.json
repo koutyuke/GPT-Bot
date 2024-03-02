@@ -2,23 +2,8 @@
   "[svg]": {
     "editor.defaultFormatter": "jock.svg"
   },
-  "[typescript]": {
-    "editor.defaultFormatter": "denoland.vscode-deno"
-  },
-  "commit-message-editor.dynamicTemplate": [
-    "{type}{scope}{description}",
-    "",
-    "{body}",
-    "",
-    "{footer}"
-  ],
-  "commit-message-editor.staticTemplate": [
-    "label: emoji (scope) short-description",
-    "",
-    "body",
-    "",
-    "footer"
-  ],
+  "commit-message-editor.dynamicTemplate": ["{type}{scope}{description}", "", "{body}", "", "{footer}"],
+  "commit-message-editor.staticTemplate": ["label: emoji (scope) short-description", "", "body", "", "footer"],
   "commit-message-editor.tokens": [
     {
       "combobox": true,
@@ -167,14 +152,13 @@
     }
   ],
   "commit-message-editor.view.defaultView": "form",
-  "deno.enablePaths": [
-    "supabase/functions"
-  ],
+  "deno.enablePaths": ["supabase/functions"],
   "deno.lint": true,
   "deno.unstable": true,
   "editor.codeActionsOnSave": {
     "quickfix.biome": "explicit",
     "source.organizeImports.biome": "explicit"
   },
-  "editor.defaultFormatter": "biomejs.biome"
+  "editor.defaultFormatter": "biomejs.biome",
+  "typescript.validate.enable": true
 }
