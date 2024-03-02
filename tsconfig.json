@@ -9,18 +9,14 @@
     "moduleDetection": "force",
     "moduleResolution": "bundler",
     "noEmit": true,
-    "noFallthroughCasesInSwitch": true,
     "noPropertyAccessFromIndexSignature": false,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
     "paths": {
       "@/*": ["src/*"]
     },
-    "skipLibCheck": true,
-    "strict": true,
     "strictNullChecks": true,
-    "target": "ESNext",
-    "verbatimModuleSyntax": true
+    "target": "ESNext"
   },
-  "extends": "@tsconfig/strictest/tsconfig.json"
+  "exclude": ["node_modules"],
+  "extends": "@tsconfig/strictest/tsconfig.json",
+  "include": ["**/*.ts"]
 }
