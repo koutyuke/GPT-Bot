@@ -1,6 +1,6 @@
-import { ChatModel } from "./model";
+import type { GPTModel } from "./type";
 
-const convertToModelName = (text: string | null): ChatModel => {
+const convertToModelName = (text: string | null): GPTModel => {
   switch (text) {
     case "GPT-3.5-turbo":
       return "gpt-3.5-turbo";

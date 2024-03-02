@@ -1,4 +1,4 @@
-import { ChatModel } from "@/openAI/model";
+import { GPTModel } from "@/openAI/model";
 import {
   type ApplicationCommandDataResolvable,
   ApplicationCommandOptionType,
@@ -6,7 +6,7 @@ import {
 
 type ModelOption = {
   name: "GPT-3.5-turbo" | "GPT-4" | "GPT-4-turbo";
-  value: ChatModel;
+  value: GPTModel;
 };
 
 const chatCommandDetail = {
