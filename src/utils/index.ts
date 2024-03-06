@@ -1,1 +1,2 @@
-export * from "./createMessageLog";
+export * from "./createPreviousMessageHistory";
+export * from "./createThreadMessageHistory";
