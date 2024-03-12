@@ -10,7 +10,7 @@ type ModelOption = {
 };
 
 const searchCommandDetail = {
-  name: "search",
+  name: "search-chat",
   description: "検索エンジンを使って回答をするぞ!",
   options: [
     {
@@ -19,12 +19,6 @@ const searchCommandDetail = {
       description: "AIに送るテキストを指定してください",
       required: true,
     },
-    // {
-    //   type: ApplicationCommandOptionType.String,
-    //   name: "previous_message_id",
-    //   description:
-    //     "前のメッセージのIDを指定してください(同一チャンネルである必要があります)",
-    // },
     {
       type: ApplicationCommandOptionType.String,
       name: "model",
