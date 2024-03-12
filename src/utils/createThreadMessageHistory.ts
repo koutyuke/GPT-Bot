@@ -26,8 +26,6 @@ const createThreadMessageHistory = async ({
       messages.filter((message) => message.author.id === botId)
     );
 
-  // console.log(messages);
-
   const messageHistory = new ChatMessageHistory();
 
   let messageCount = 0;
@@ -55,26 +53,6 @@ const createThreadMessageHistory = async ({
     }
   };
 
-  // for (const message of messages.values()) {
-  //   if (messageCount >= maxMessageHistoryCount) {
-  //     break;
-  //   }
-
-  //   const firstLine = message.content.split("\n")[0];
-  //   const userInput = firstLine?.match(userMessageReg);
-  //   const aiAnswer = message.content.replace(userMessageReg, "").trim();
-
-  //   if (firstLine && userInput) {
-  //     messageHistory.addUserMessage(firstLine);
-  //     messageHistory.addAIMessage(aiAnswer);
-  //   }
-
-  //   if (userMessageReg.test(message.content)) {
-  //     messageHistory.addUserMessage(message.content);
-  //   }
-
-  //   messageCount++;
-  // }
   addMessageHistory(messages.values());
   return messageHistory;
 };
