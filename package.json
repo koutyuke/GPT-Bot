@@ -17,10 +17,15 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@langchain/community": "^0.0.33",
-    "@langchain/core": "^0.1.39",
-    "@langchain/openai": "^0.0.14",
+    "@langchain/community": "^0.0.35",
+    "@langchain/core": "0.1.43",
+    "@langchain/openai": "^0.0.18",
     "@tsconfig/strictest": "^2.0.3",
-    "discord.js": "^14.14.1"
+    "discord.js": "^14.14.1",
+    "langchain": "0.1.25"
+  },
+  "overrides": {
+    "@langchain/core": "0.1.43",
+    "langchain": "0.1.25"
   }
 }
