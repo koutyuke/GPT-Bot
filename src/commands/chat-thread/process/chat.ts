@@ -26,7 +26,7 @@ const ChatSubcommandProcess = async ({
     channel.type !== ChannelType.PublicThread &&
     channel.type !== ChannelType.PrivateThread
   ) {
-    await interaction.reply("このコマンドはスレッドでのみでしか使えないぞ!");
+    await interaction.reply("このコマンドはスレッド内でしか使えないぞ!");
     return;
   }
 
