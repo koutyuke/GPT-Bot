@@ -4,9 +4,17 @@ import {
   Events,
   GatewayIntentBits,
 } from "discord.js";
-import { commands, pingCommandDetail, pingCommandProcess } from "./commands";
-import { chatCommandDetail } from "./commands/chat/detail";
-import { chatCommandProcess } from "./commands/chat/process";
+import {
+  chatCommandDetail,
+  chatCommandProcess,
+  chatThreadCommandDetail,
+  chatThreadCommandProcess,
+  commands,
+  pingCommandDetail,
+  pingCommandProcess,
+  searchCommandDetail,
+  searchCommandProcess,
+} from "./commands";
 
 const client = new Client({
   intents: [
@@ -40,6 +48,16 @@ client.on("interactionCreate", async (interaction) => {
 
   if (interaction.commandName === chatCommandDetail.name) {
     await chatCommandProcess({ interaction, client });
+    return;
+  }
+
+  if (interaction.commandName === chatThreadCommandDetail.name) {
+    await chatThreadCommandProcess({ interaction, client });
+    return;
+  }
+
+  if (interaction.commandName === searchCommandDetail.name) {
+    await searchCommandProcess({ interaction, client });
     return;
   }
 });

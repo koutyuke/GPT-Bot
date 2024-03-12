@@ -1,9 +1,10 @@
-import { baseHumanMessage } from "@/openAI/message/human";
 import { baseSystemMessage } from "@/openAI/message/system";
 import { createChatModel } from "@/openAI/model";
 import { convertToModelName } from "@/openAI/model/utils";
 import { createAIResponseMessage } from "@/openAI/utils";
-import { createMessageLog } from "@/utils";
+import { createPreviousMessageHistory } from "@/utils";
+import { ChatMessageHistory } from "@langchain/community/stores/message/in_memory";
+import { HumanMessage } from "@langchain/core/messages";
 import { ChatInputCommandInteraction, Client } from "discord.js";
 
 type Options = {
@@ -14,14 +15,14 @@ type Options = {
 const chatCommandProcess = async ({ interaction, client }: Options) => {
   await interaction.deferReply();
 
-  const model = convertToModelName(interaction.options.getString("model"));
+  const modelName = convertToModelName(interaction.options.getString("model"));
   const text = interaction.options.getString("text");
 
   const previousMessageId = interaction.options.getString(
     "previous_message_id"
   );
 
-  let messageLog: string | undefined = undefined;
+  let messageHistory: ChatMessageHistory | undefined = undefined;
 
   if (previousMessageId !== null) {
     const previousMessage = await interaction.channel?.messages.fetch(
@@ -37,7 +38,8 @@ const chatCommandProcess = async ({ interaction, client }: Options) => {
       );
       return;
     }
-    messageLog = await createMessageLog({
+
+    messageHistory = await createPreviousMessageHistory({
       firstPreviousMessage: previousMessage!,
     });
   }
@@ -47,12 +49,9 @@ const chatCommandProcess = async ({ interaction, client }: Options) => {
     return;
   }
 
-  const chatModel = createChatModel(model);
+  const chatModel = createChatModel(modelName);
   const systemMessage = baseSystemMessage();
-  const humanMessage = await baseHumanMessage({
-    question: text,
-    log: messageLog,
-  });
+  const humanMessage = new HumanMessage(text);
 
   const res = await chatModel.invoke([systemMessage, humanMessage]);
 
